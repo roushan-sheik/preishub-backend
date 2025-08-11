@@ -1,10 +1,4 @@
-# Task Management App
-
-# 🚀 Project Setup – TypeScript + Express + Docker
-
-This project is a TypeScript-based Express.js backend application integrated with Docker and MongoDB. It includes features like linting, prettier formatting, and `.env` support.
-
----
+# PreisHub
 
 ## 🧾 Features
 
@@ -26,7 +20,7 @@ This project is a TypeScript-based Express.js backend application integrated wit
 
 ## 🚦 Getting Started
 
-### 🔁 1. Clone the Repository
+### 🔁 1. Clone the dev branch
 
 ### HTTPS
 
@@ -37,19 +31,15 @@ This project is a TypeScript-based Express.js backend application integrated wit
 ### SSH
 
 ```bash
-git clone git@github.com:roushan-sheik/tasko-backend.git
+git clone https://github.com/roushan-sheik/preishub-backend.git
 
 ```
 
 ## Navigate to this directory
 
 ```
-cd tasko-backend
+cd preishub-backend
 ```
-
-## 👨‍💻 Development (Without Docker)
-
-If you want to run locally without Docker:
 
 ---
 
@@ -69,47 +59,53 @@ npm run start:dev
 
 ```
 
-  src.
-        ├── app.ts
-        ├── builder
-        │   └── QueryBuilder.ts
-        ├── config
-        │   ├── db.config.ts
-        │   └── index.ts
-        ├── constants
-        ├── controllers
-        │   └── auth.controller.ts
-        ├── errors
-        │   ├── handleCastError.ts
-        │   ├── handleDuplicateError.ts
-        │   ├── handleValidationError.ts
-        │   ├── handleZodError.ts
-        │   └── index.ts
-        ├── interfaces
-        │   ├── auth.interface.ts
-        │   ├── error.interface.ts
-        │   └── user.interface.ts
-        ├── middlewares
-        │   ├── auth.ts
-        │   ├── globalErrorHandler.ts
-        │   ├── index.ts
-        │   ├── notFound.ts
-        │   └── zodValidateRequest.ts
-        ├── models
-        │   └── user.model.ts
-        ├── routes
-        │   └── auth.route.ts
-        ├── server.ts
-        ├── services
-        │   └── auth.service.ts
-        ├── utils
-        │   ├── ApiError.ts
-        │   ├── ApiResponse.ts
-        │   ├── AsyncHandler.ts
-        │   ├── functions
-        │   │   └── auth.utils.ts
-        │   └── GlobalErrorObj.ts
-        └── zod
-            └── auth.validation.ts
+    ├── app.ts
+    ├── builder
+    │   └── QueryBuilder.ts
+    ├── config
+    │   ├── db.config.ts
+    │   └── index.ts
+    ├── constants
+    ├── controllers
+    │   ├── auth.controller.ts
+    │   └── product.controller.ts
+    ├── errors
+    │   ├── handleCastError.ts
+    │   ├── handleDuplicateError.ts
+    │   ├── handleValidationError.ts
+    │   ├── handleZodError.ts
+    │   └── index.ts
+    ├── interfaces
+    │   ├── auth.interface.ts
+    │   ├── error.interface.ts
+    │   ├── product.interface.ts
+    │   └── user.interface.ts
+    ├── middlewares
+    │   ├── auth.ts
+    │   ├── globalErrorHandler.ts
+    │   ├── index.ts
+    │   ├── notFound.ts
+    │   └── zodValidateRequest.ts
+    ├── models
+    │   ├── category.model.ts
+    │   ├── product.model.ts
+    │   └── user.model.ts
+    ├── routes
+    │   ├── auth.route.ts
+    │   └── product.route.ts
+    ├── server.ts
+    ├── services
+    │   ├── auth.service.ts
+    │   └── product.service.ts
+    ├── utils
+    │   ├── ApiError.ts
+    │   ├── ApiResponse.ts
+    │   ├── AsyncHandler.ts
+    │   ├── functions
+    │   │   └── auth.utils.ts
+    │   └── GlobalErrorObj.ts
+    └── zod
+        ├── auth.validation.ts
+        └── product.validation.ts
 
 ```
