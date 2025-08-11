@@ -1,8 +1,9 @@
 import { Router } from "express";
-import { ProductControllers } from "../controllers/product.controller";
+
 import { zodValidateRequest } from "../middlewares";
 import { ProductValidation } from "../zod/product.validation";
 import { auth } from "../middlewares/auth";
+import { ProductControllers } from "../controllers/product.controller";
 
 const router = Router();
 
@@ -25,9 +26,9 @@ router
   )
   .delete(auth(), ProductControllers.deleteProduct);
 
+router.route("/categories/all").get(ProductControllers.getAllCategories);
 router
-  .route("/categories")
-  .get(ProductControllers.getAllCategories)
+  .route("/categories/create")
   .post(
     auth(),
     zodValidateRequest(ProductValidation.createCategoryValidationSchema),

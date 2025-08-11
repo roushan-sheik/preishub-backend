@@ -8,7 +8,7 @@ import {
   ICategory,
 } from "../interfaces/product.interface";
 import ApiError from "../utils/ApiError";
-import QueryBuilder from "../builder/QueryBuilder";
+import { QueryBuilder } from "../builder/QueryBuilder";
 
 // Product Services
 const getAllProducts = async (query: Record<string, unknown>) => {
