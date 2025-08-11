@@ -17,8 +17,10 @@ app.use(cookieParser());
 
 // routes
 import AuthRoute from "./routes/auth.route";
+import ProductRoute from "./routes/product.route";
 
 app.use("/api/v1/auth", AuthRoute);
+app.use("/api/v1/products", ProductRoute);
 
 // Home Route and Health Route
 app.get("/", (req: Request, res: Response) => {
