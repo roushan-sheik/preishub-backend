@@ -25,13 +25,13 @@
 ### HTTPS
 
 ```bash
- git clone https://github.com/roushan-sheik/tasko-backend.git
+ git clone https://github.com/roushan-sheik/preishub-backend.git
 ```
 
 ### SSH
 
 ```bash
-git clone https://github.com/roushan-sheik/preishub-backend.git
+git clone git@github.com:roushan-sheik/preishub-backend.git
 
 ```
 
