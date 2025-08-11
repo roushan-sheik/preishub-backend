@@ -1,0 +1,605 @@
+{
+	"info": {
+		"_postman_id": "a7101f6a-f837-4273-a25b-49b083deb279",
+		"name": "PreisHub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33091571"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fullName\": \"Test User\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"Test1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"Test1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "createProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Nike Air Max Shoe\",\r\n  \"image\": \"https://example.com/image.jpg\",\r\n  \"description\": \"Premium running shoe\",\r\n  \"price\": \"120.00\",\r\n  \"affiliate_link\": \"https://affiliate.link\",\r\n  \"category\": \"6899ee0881fe4230e278fb87\",\r\n  \"brand\": \"Nike\",\r\n  \"season\": [\"summer\", \"spring\"],\r\n  \"ageGroup\": [\"adult\"],\r\n  \"type\": \"shoe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products?search=shoe&brand=Nike&type=shoe&category=6899ee0881fe4230e278fb87&sort=price&page=1&limit=10&fields=title,price,image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "shoe"
+								},
+								{
+									"key": "brand",
+									"value": "Nike"
+								},
+								{
+									"key": "type",
+									"value": "shoe"
+								},
+								{
+									"key": "category",
+									"value": "6899ee0881fe4230e278fb87"
+								},
+								{
+									"key": "sort",
+									"value": "price"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "fields",
+									"value": "title,price,image"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSeasonalProducts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products?season=summer&ageGroup=adult&sort=-createdAt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "season",
+									"value": "summer"
+								},
+								{
+									"key": "ageGroup",
+									"value": "adult"
+								},
+								{
+									"key": "sort",
+									"value": "-createdAt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleProduct",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/6899ee5981fe4230e278fb8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6899ee5981fe4230e278fb8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProduct",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Nike Air Max Shoe Pro\",\n  \"price\": \"135.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/6899ee5981fe4230e278fb8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6899ee5981fe4230e278fb8c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Updated Nike Air Max Shoe Pro\",\n  \"price\": \"135.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/6899ee5981fe4230e278fb8c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"6899ee5981fe4230e278fb8c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "getAllCategories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/categories/all?search=shoe&sort=-createdAt&limit=10&page=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"all"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "shoe"
+								},
+								{
+									"key": "sort",
+									"value": "-createdAt"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSingleCategoryByID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/categories/6899ee0881fe4230e278fb87",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"6899ee0881fe4230e278fb87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"shoe\",\n  \"description\": \"Updated description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/categories/6899ee0881fe4230e278fb87",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"6899ee0881fe4230e278fb87"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "category",
+								"value": "shoe",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"shoe\",\n  \"description\": \"Updated description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/categories/689a0a314a8585e04186e2f0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"689a0a314a8585e04186e2f0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzU0OTE3NTUxLCJleHAiOjE3NTUxNzY3NTF9.AgAfNcIpq6wMXSA-bl2BqgAtWMP2u1WorkfAyJHGlrU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"mobile\",\r\n  \"description\": \"All types of footwear\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/products/categories/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"categories",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Home",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"User\",\r\n  \"role\": \"ADMIN\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"Test1234\",\r\n  \"passwordChangedAt\": \"2024-12-10T10:00:00Z\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:5000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HealthCheck",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"User\",\r\n  \"role\": \"ADMIN\",\r\n  \"email\": \"user@gmail.com\",\r\n  \"password\": \"Test1234\",\r\n  \"passwordChangedAt\": \"2024-12-10T10:00:00Z\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:5000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAZ21haWwuY29tIiwiaWF0IjoxNzU0OTE3NTUxLCJleHAiOjE3NTUxNzY3NTF9.AgAfNcIpq6wMXSA-bl2BqgAtWMP2u1WorkfAyJHGlrU",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
