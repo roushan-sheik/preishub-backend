@@ -1,29 +1,52 @@
 import { Schema, model } from "mongoose";
-import { TUser } from "../interfaces/user.interface";
+import { IProduct } from "../interfaces/product.interface";
 
-const productSchema = new Schema<TUser>({
-  fullName: {
-    type: String,
-    required: true,
+const productSchema = new Schema<IProduct>(
+  {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      trim: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    affiliate_link: {
+      type: String,
+      required: true,
+    },
+    category: {
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
+    },
+    brand: {
+      type: String,
+      trim: true,
+    },
+    season: {
+      type: [String],
+      default: [],
+    },
+    ageGroup: {
+      type: [String],
+      default: [],
+    },
+    type: {
+      type: String,
+      trim: true,
+    },
   },
-  email: {
-    type: String,
-    required: [true, "Email is required"],
-  },
-  password: {
-    type: String,
-    required: [true, "Password is required"],
-    select: 0,
-  },
-  refreshToken: {
-    type: String,
-    select: false,
-  },
-  passwordChangedAt: {
-    type: Date,
-  },
-});
+  { timestamps: true }
+);
 
-const User = model<TUser>("Product", productSchema);
-
-export default User;
+export const Product = model<IProduct>("Product", productSchema);
